@@ -1,7 +1,7 @@
 part of '_index.dart';
 
 class App extends TopStatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
