@@ -84,4 +84,15 @@ class Product {
   int get hashCode {
     return id.hashCode ^ name.hashCode ^ price.hashCode ^ quantity.hashCode ^ createdAt.hashCode ^ updatedAt.hashCode;
   }
+
+  static Product random() {
+    return Product(
+      id: UniqueKey().toString().substring(2, 7),
+      name: generateWordPairs(maxSyllables: 2).take(2).join(' '),
+      price: Random().nextInt(999999),
+      quantity: Random().nextInt(99),
+      createdAt: DateTime.now().toString(),
+      // updatedAt: DateTime.now().toString(),
+    );
+  }
 }

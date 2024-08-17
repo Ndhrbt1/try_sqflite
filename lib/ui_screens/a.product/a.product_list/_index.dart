@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:try_sqflite/dt_domains/_models/_index.dart';
+import 'package:try_sqflite/dt_domains/a.product/_index.dart';
 
 import '../../../app/_index.dart';
 import '../../../xtras/_index.dart';
@@ -17,4 +19,6 @@ part 'widgets/e.product_list.echo.dart';
 
 ProductListData get _dt => Data.productList.st;
 ProductListCtrl get _ct => Ctrl.productList;
-
+ProductProv get _pv => Prov.product.st;
+ProductServ get _sv => Serv.product;
+// ProductRepo get _rp => Repo.product.st;

@@ -12,4 +12,12 @@ class ProductServ {
   void onSetState() {
     logzz.i(ProductServ, 'rxCounter setState success');
   }
+
+  Future<void> createProduct(Product product) async {
+    await _rp.createProduct(product);
+  }
+
+  readProducts() {
+    _pv.rxProductList.stateAsync = _rp.readProducts();
+  }
 }

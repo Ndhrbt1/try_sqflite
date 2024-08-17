@@ -33,8 +33,6 @@
     "*linux.*": true,
     "*macos": true,
     "*macos.*": true,
-    "*pubspec": true,
-    "*pubspec.*": true,
     "*README": true,
     "*README.*": true,
     "*test": true,

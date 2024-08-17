@@ -8,4 +8,6 @@ class ProductProv {
       onSetState: (p0) => _sv.onSetState(),
     ),
   );
+
+  final rxProductList = RM.injectFuture<List<Product>>(() => Future.value([]));
 }
