@@ -13,10 +13,20 @@ class ProductRepo {
 
   Future<List<Product>> readProducts() async {
     List<Product> products = [];
-    final querySql = await x1Sqlite.readProducts();
+    final querySql = await x1Sqlite.readProductList();
     for (var p in querySql) {
       products.add(Product.fromMap(p));
     }
     return products;
+  }
+
+  Future<Product> readProduct(String id) async {
+    List<Product> products = [];
+    final querySql = await x1Sqlite.readProductDetail(id);
+    for (var p in querySql) {
+      products.add(Product.fromMap(p));
+    }
+    final index = products.indexWhere((element) => element.id == _pv.rxSelectedId.st);
+    return products[index];
   }
 }

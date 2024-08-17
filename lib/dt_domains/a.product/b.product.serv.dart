@@ -3,6 +3,7 @@ part of '_index.dart';
 class ProductServ {
   void init() {
     logxx.i(ProductServ, '...');
+    readProducts();
   }
 
   void updateRandom() {
@@ -19,5 +20,14 @@ class ProductServ {
 
   readProducts() {
     _pv.rxProductList.stateAsync = _rp.readProducts();
+  }
+
+  readProduct() {
+    _pv.rxProductDetail.stateAsync = _rp.readProduct(_pv.rxSelectedId.st);
+  }
+
+  setSelectedId(String id) {
+    _pv.rxSelectedId.refresh();
+    _pv.rxSelectedId.st = id;
   }
 }

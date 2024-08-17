@@ -40,7 +40,7 @@ class Sqflite {
     }
   }
 
-  Future<List<Map<String, Object?>>> readProducts() async {
+  Future<List<Map<String, Object?>>> readProductList() async {
     try {
       Database db = await database;
       final x = await db.query(tbName, orderBy: 'created_at');
@@ -48,6 +48,16 @@ class Sqflite {
       return x;
     } catch (e) {
       logx.e('this is from dt_source : "read products"');
+      rethrow;
+    }
+  }
+
+  Future<List<Map<String, Object?>>> readProductDetail(String id) async {
+    try {
+      Database db = await database;
+      return await db.query(tbName, where: 'id = ?', whereArgs: [id]);
+    } catch (e) {
+      logx.e('this is from dt_source : "read product by id"');
       rethrow;
     }
   }
