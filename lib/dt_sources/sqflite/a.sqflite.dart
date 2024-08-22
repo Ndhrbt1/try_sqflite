@@ -61,4 +61,14 @@ class Sqflite {
       rethrow;
     }
   }
+
+  Future<void> deleteRow(String id) async {
+    try {
+      Database db = await database;
+      await db.delete(tbName, where: 'id = ?', whereArgs: [id]);
+    } catch (e) {
+      logx.e('this is from dt_source : "delete row"');
+      rethrow;
+    }
+  }
 }

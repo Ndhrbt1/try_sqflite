@@ -29,4 +29,8 @@ class ProductRepo {
     final index = products.indexWhere((element) => element.id == _pv.rxSelectedId.st);
     return products[index];
   }
+
+  Future<void> deleteProduct(String id) async {
+    await x1Sqlite.deleteRow(id);
+  }
 }

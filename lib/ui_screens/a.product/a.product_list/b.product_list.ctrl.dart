@@ -18,4 +18,9 @@ class ProductListCtrl {
     _sv.setSelectedId(id);
     nav.to(Routes.productDetail);
   }
+
+  removeById(String id) {
+    _sv.deleteProduct(id);
+    _dt.rxProductList.st = [..._dt.rxProductList.st]..removeWhere((item) => item.id == id);
+  }
 }

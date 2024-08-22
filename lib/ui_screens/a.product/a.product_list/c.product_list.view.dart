@@ -31,6 +31,12 @@ class ProductListView extends StatelessWidget {
                           leading: SizedBox(height: 50, width: 50, child: Center(child: Text(data[index].id))),
                           selected: _dt.rxSelectedId.st == data[index].id,
                           onTap: () => _ct.setSelectedId(data[index].id),
+                          trailing: IconButton(
+                            onPressed: () {
+                              _ct.removeById(data[index].id);
+                            },
+                            icon: const Icon(Icons.delete),
+                          ),
                         ),
                       ),
                     ),

@@ -30,4 +30,8 @@ class ProductServ {
     _pv.rxSelectedId.refresh();
     _pv.rxSelectedId.st = id;
   }
+
+  Future<void> deleteProduct(String id) async {
+    await _rp.deleteProduct(id);
+  }
 }
