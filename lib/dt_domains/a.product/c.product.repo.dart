@@ -33,4 +33,8 @@ class ProductRepo {
   Future<void> deleteProduct(String id) async {
     await x1Sqlite.deleteRow(id);
   }
+
+  Future<void> updateProduct(Product product, String id) async {
+    await x1Sqlite.updateProduct(product, id);
+  }
 }

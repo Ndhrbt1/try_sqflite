@@ -95,4 +95,15 @@ class Product {
       // updatedAt: DateTime.now().toString(),
     );
   }
+
+  static Product updateValue(String id, String createdAt) {
+    return Product(
+      id: id,
+      name: 'update',
+      price: 100,
+      quantity: 10,
+      createdAt: createdAt,
+      updatedAt: DateTime.now().toString(),
+    );
+  }
 }

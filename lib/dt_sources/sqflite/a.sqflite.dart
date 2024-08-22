@@ -71,4 +71,19 @@ class Sqflite {
       rethrow;
     }
   }
+
+  Future<void> updateProduct(Product product, String id) async {
+    try {
+      Database db = await database;
+      await db.update(
+        tbName,
+        product.toMap(),
+        where: 'id = ?',
+        whereArgs: [id],
+      );
+    } catch (e) {
+      logx.e('this is from dt_source : "update product"');
+      rethrow;
+    }
+  }
 }

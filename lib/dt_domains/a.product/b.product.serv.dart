@@ -34,4 +34,8 @@ class ProductServ {
   Future<void> deleteProduct(String id) async {
     await _rp.deleteProduct(id);
   }
+
+  Future<void> updateProduct(Product product, String id) async {
+    await _rp.updateProduct(product, id);
+  }
 }

@@ -27,15 +27,37 @@ class ProductListView extends StatelessWidget {
                       child: OnReactive(
                         () => ListTile(
                           title: Text(data[index].createdAt),
-                          subtitle: Text('Rp ${Fun.formatRupiah.format(data[index].price)}'),
+                          subtitle: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(data[index].name),
+                              Text('Rp ${Fun.formatRupiah.format(data[index].price)}'),
+                            ],
+                          ),
                           leading: SizedBox(height: 50, width: 50, child: Center(child: Text(data[index].id))),
                           selected: _dt.rxSelectedId.st == data[index].id,
                           onTap: () => _ct.setSelectedId(data[index].id),
-                          trailing: IconButton(
-                            onPressed: () {
-                              _ct.removeById(data[index].id);
-                            },
-                            icon: const Icon(Icons.delete),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  _ct.updateProduct(
+                                    data[index].id,
+                                    data[index].createdAt,
+                                  );
+                                },
+                                icon: const Icon(Icons.repeat),
+                              ),
+                              const SizedBox(width: 10),
+                              IconButton(
+                                onPressed: () {
+                                  _ct.removeById(data[index].id);
+                                },
+                                icon: const Icon(Icons.delete),
+                              ),
+                            ],
                           ),
                         ),
                       ),

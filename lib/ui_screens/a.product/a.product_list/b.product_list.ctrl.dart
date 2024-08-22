@@ -14,6 +14,16 @@ class ProductListCtrl {
     logx.i(product.toString());
   }
 
+  updateProduct(String id, String createdAt) async {
+    final product = Product.updateValue(id, createdAt);
+    await _sv.updateProduct(product, id);
+    _pv.rxProductList.setState((s) {
+      final index = s.indexWhere((element) => element.id == id);
+      return s[index] = product;
+    });
+    logx.i(product.toString());
+  }
+
   setSelectedId(String id) {
     _sv.setSelectedId(id);
     nav.to(Routes.productDetail);
