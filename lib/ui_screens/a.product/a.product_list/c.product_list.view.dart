@@ -14,7 +14,7 @@ class ProductListView extends StatelessWidget {
       body: OnBuilder.all(
         listenTo: _dt.rxProductList,
         onWaiting: () => const Center(child: CircularProgressIndicator()),
-        onError: (_, __) => const Text('Error'),
+        onError: (error, refreshError) => Text(error),
         onData: (data) => data.isEmpty
             ? const Center(
                 child: Text('data is empty'),
